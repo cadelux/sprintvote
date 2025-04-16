@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{% if request.path == '/login/' %}Giriş Yap{% else %}Kayıt Ol{% endif %}</h3>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">
+        {% if request.path == '/login/' %}Giriş{% else %}Kayıt{% endif %}
+    </button>
+</form>
+{% endblock %}

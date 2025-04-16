@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-3">{{ topic.title }}</h3>
+
+<form method="post" class="mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Oy Ver</button>
+</form>
+
+<div class="mb-3">
+    <h5>📊 Sonuçlar:</h5>
+    <ul class="list-group">
+        <li class="list-group-item">✅ Evet: {{ yes_count }}</li>
+        <li class="list-group-item">❌ Hayır: {{ no_count }}</li>
+    </ul>
+</div>
+
+{% if user_vote %}
+    <p class="alert alert-info">Senin oyun: <strong>{{ user_vote.choice|yesno:"Evet,Hayır" }}</strong></p>
+{% endif %}
+
+<div class="mb-3">
+    <h5>👥 Kim ne oy verdi?</h5>
+    <ul class="list-group">
+        {% for vote in all_votes %}
+            <li class="list-group-item">{{ vote.user.username }} — {{ vote.choice|yesno:"Evet,Hayır" }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<a href="/" class="btn btn-secondary">← Tüm Konulara Dön</a>
+{% endblock %}
