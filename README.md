@@ -1,5 +1,11 @@
 #  SprintVote – Django ile Basit Oylama Sistemi
-
+✅ Giriş-çıkış (login,logout)
+✅ Kayıt (signup)
+✅ Oy verme sistemi (vote)
+✅ Oylama sonuçları (vote results)
+✅ Kullanıcı kimlikleriyle oy geçmişi
+✅ Bootstrap
+✅ Geri dönüş ve yönlendirme sistemleri (url direct)
 ## Kurulum
 
 ```bash
